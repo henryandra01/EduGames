@@ -1,0 +1,498 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+header {
+  min-height: 100px;
+  width: 100%;
+  padding: 10px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid rgb(236, 236, 236);
+  position: fixed;
+  top: 0;
+  background: #ffffff;
+  z-index: 1000;
+}
+
+.icone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icone a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.icone a img {
+  width: 40px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.icone a span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+
+.menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: hsl(230 15% 50%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.menu a:hover {
+  color: black;
+}
+
+.login {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.login a {
+  text-decoration: none;
+  color: hsl(0, 0%, 0%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.login .entrar_head:hover {
+  background-color: rgb(255, 196, 0);
+  color: white;
+  transition: 0.5s;
+}
+
+.entrar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.entrar img {
+  width: 25px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: -5px;
+}
+
+.login .entrar_botao {
+  padding: 10px 16px;
+  text-decoration: none;
+  background-color: hsl(250 80% 60%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.login .entrar_botao:hover {
+  background-color: hsl(250, 100%, 61%);
+}
+
+.primary {
+  height: calc((60vh) - 100px);
+  max-width: 100%;
+  background: hsl(230 20% 90%);
+  margin-top: 100px;
+}
+
+.primary_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100%;
+}
+
+.primary_desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px;
+  gap: 20px;
+}
+
+.primary_desc h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 45px;
+}
+
+.primary_desc span {
+  background: linear-gradient(to right, #6c3ae8, #22b8a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.primary_desc p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: gray;
+  font-weight: 400;
+}
+
+.primary_botoes {
+  display: flex;
+  gap: 20px;
+}
+
+#primary_a {
+  text-decoration: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #6c3ae8;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+#primary_a:hover {
+  background-color: #6b30ff;
+  transition: 0.3s;
+}
+
+.primary_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary_img img {
+  max-width: 90%;
+  border-radius: 20px;
+  animation: flutuar 2s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.second {
+  height: 650px;
+  background-color: #ebeae5;
+}
+
+.second_container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 80px 30px;
+  align-items: center;
+  gap: 50px;
+}
+
+.second_title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.second_title h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.second_title p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: gray;
+}
+
+.second_desc {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 30px;
+}
+
+.second_jogo {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+
+.quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#quiz {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: lab(52.8042% 18.2982 -74.3349);
+}
+
+#memoria {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: lab(48.9452% -41.3464 51.1223);
+}
+
+#palavras {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: hsl(308 77% 40%);
+}
+
+.quiz img {
+  width: 150px;
+  object-fit: cover;
+  margin-top: 30px;
+}
+
+.quiz_desc {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  gap: 7px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.quiz_desc h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.quiz_desc p {
+  font-family: Arial, Helvetica, sans-serif;
+  color: gray;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.subir {
+  transform: translateY(-20px);
+  transition: 0.3s;
+}
+
+.third_section {
+  height: 480px;
+  background-color: hsl(240, 8%, 88%);
+}
+
+.third_container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 50px 30px;
+  align-items: center;
+  gap: 40px;
+}
+
+.third_title h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.third_desc {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+  width: 100%;
+  gap: 30px;
+}
+
+.third_info {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: white;
+}
+
+.third_info h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.third_info p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  color: gray;
+}
+
+.third_interior {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: hsl(250deg 80% 60% / 10%);
+}
+
+.third_interior img {
+  width: 50px;
+}
+
+.four {
+  height: 400px;
+  background-color: #ebeae5;
+}
+
+.four_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.four_rolo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: linear-gradient(
+    135deg,
+    hsl(250 80% 60%),
+    hsl(210 85% 55%),
+    hsl(170 70% 45%)
+  );
+  border-radius: 50px;
+  width: 800px;
+  height: 250px;
+}
+
+.four_rolo h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+}
+
+.four_rolo p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  color: #ffffff;
+}
+
+.four_rolo a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 15px 30px;
+  background-color: #22b8a0;
+  border-radius: 10px;
+}
+
+.four_rolo a:hover {
+  background-color: #28af99;
+}
+
+.footer {
+  height: 200px;
+  border-top: 1px solid rgb(236, 236, 236);
+}
+
+.footer_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer_title {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.footer_title img {
+  width: 35px;
+  object-fit: cover;
+}
+
+.footer_title h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: #000000;
+  margin-top: 7px;
+}
+
+.footer_p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: gray;
+  margin-top: 10px;
+}
+
+.footer_pp {
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  text-align: center;
+  color: gray;
+  margin-top: 10px;
+}
