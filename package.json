@@ -1,0 +1,26 @@
+{
+  "name": "edugames",
+  "version": "1.0.0",
+  "description": "Jogos educativos interativos desenvolvidos para transformar aprendizado em diversão. A plataforma utiliza mecânicas de gamificação para estimular memória, raciocínio lógico, atenção, escrita e associação de conceitos através de desafios dinâmicos e intuitivos.Com atividades como Quiz com Pontuação e Níveis, Jogo da Memória Educativo, Caça-Palavras.",
+  "homepage": "https://github.com/henryandra01/EduGames#readme",
+  "bugs": {
+    "url": "https://github.com/henryandra01/EduGames/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henryandra01/EduGames.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "dotenv": "^17.4.2",
+    "node": "^24.16.0"
+  }
+}
