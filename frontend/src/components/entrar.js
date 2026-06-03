@@ -11,7 +11,7 @@ btnLogin.addEventListener('click', async() =>{
             // Como o localStorage só aceita TEXTO, transformamos o objeto do usuário em uma string JSON
             localStorage.setItem('@EduPlay:user', JSON.stringify(response));
 
-            alert(`Bem-vindo, ${response.nome}!`);
+            alert(`Bem-vindo, ${response.name}!`);
             window.location.href = '../pages/menu.html'
         } 
     }catch(error){

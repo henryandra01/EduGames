@@ -64,6 +64,17 @@ header {
   color: black;
 }
 
+.menu-logado{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-logado{
+  
+}
+
 .login {
   display: flex;
   justify-content: end;
