@@ -64,38 +64,34 @@ header {
   color: black;
 }
 
-.menu-logado{
+.menu-logado {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   gap: 10px;
-}
-
-.menu-logado{
-  
-}
-
-.login {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  gap: 10px;
-}
-
-.login a {
-  text-decoration: none;
-  color: hsl(0, 0%, 0%);
+  margin-left: auto;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
-  font-size: 17px;
-  padding: 10px;
-  border-radius: 10px;
 }
 
-.login .entrar_head:hover {
-  background-color: rgb(255, 196, 0);
-  color: white;
-  transition: 0.5s;
+.menu-logado button{
+  margin: auto;
+  width: 80%;
+  height: 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #22b8a0;
+  border: 1px solid transparent;
+  font-size: 11pt;
+}
+
+.menu-logado button:hover{
+  cursor: pointer;
+  background-color: #20a790;
+}
+
+.menu-logado h2{
+  font-weight: 200;
 }
 
 .entrar {
@@ -124,7 +120,7 @@ header {
 }
 
 .primary {
-  height: calc((60vh) - 100px);
+  min-height: calc((60vh) - 100px); /* Mudado para min-height */
   max-width: 100%;
   background: hsl(230 20% 90%);
   margin-top: 100px;
@@ -140,7 +136,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 30px;
+  padding: 30px; /* Ajustado padding */
   gap: 20px;
 }
 
@@ -188,35 +184,31 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .primary_img img {
   max-width: 90%;
+  height: auto; /* Garante proporção */
   border-radius: 20px;
   animation: flutuar 2s ease-in-out infinite;
 }
 
 @keyframes flutuar {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 .second {
-  height: 650px;
+  min-height: 650px; /* Mudado para min-height */
   background-color: #ebeae5;
 }
 
 .second_container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   padding: 80px 30px;
   align-items: center;
@@ -246,20 +238,17 @@ header {
 
 .second_desc {
   width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo automático */
   gap: 30px;
 }
 
 .second_jogo {
   width: 100%;
-  height: 100%;
   border-radius: 20px;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr;
+  grid-template-rows: 200px 1fr; /* Altura fixa na imagem e automática no texto */
+  background-color: #ffffff;
 }
 
 .quiz {
@@ -287,9 +276,8 @@ header {
 }
 
 .quiz img {
-  width: 150px;
+  width: 120px; /* Reduzido levemente para caber melhor */
   object-fit: cover;
-  margin-top: 30px;
 }
 
 .quiz_desc {
@@ -297,11 +285,8 @@ header {
   justify-content: start;
   align-items: start;
   flex-direction: column;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 40px;
+  padding: 25px 20px; /* Ajustado padding */
   gap: 7px;
-  background-color: #ffffff;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -326,13 +311,13 @@ header {
 }
 
 .third_section {
-  height: 480px;
+  min-height: 480px; /* Mudado para min-height */
   background-color: hsl(240, 8%, 88%);
 }
 
 .third_container {
   display: flex;
-  height: 100%;
+  min-height: 100%;
   flex-direction: column;
   padding: 50px 30px;
   align-items: center;
@@ -348,8 +333,7 @@ header {
 
 .third_desc {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo automático */
   width: 100%;
   gap: 30px;
 }
@@ -358,7 +342,7 @@ header {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  padding: 20px 30px;
+  padding: 30px 20px;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -395,8 +379,9 @@ header {
 }
 
 .four {
-  height: 400px;
+  min-height: 400px; /* Mudado para min-height */
   background-color: #ebeae5;
+  padding: 40px 20px;
 }
 
 .four_container {
@@ -418,14 +403,15 @@ header {
     hsl(210 85% 55%),
     hsl(170 70% 45%)
   );
-  border-radius: 50px;
-  width: 800px;
-  height: 250px;
+  border-radius: 30px; /* Levemente reduzido para mobile */
+  width: 100%;
+  max-width: 800px; /* Evita passar de 800px, mas aceita menos */
+  padding: 40px 20px; /* Mudado de height fixo para padding interno */
 }
 
 .four_rolo h1 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
+  font-size: 32px; /* Reduzido base para encaixe */
   font-weight: 600;
   text-align: center;
   color: #ffffff;
@@ -433,7 +419,7 @@ header {
 
 .four_rolo p {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   text-align: center;
   color: #ffffff;
@@ -441,12 +427,12 @@ header {
 
 .four_rolo a {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
-  padding: 15px 30px;
+  padding: 12px 25px;
   background-color: #22b8a0;
   border-radius: 10px;
 }
@@ -456,8 +442,9 @@ header {
 }
 
 .footer {
-  height: 200px;
+  min-height: 200px; /* Mudado para min-height */
   border-top: 1px solid rgb(236, 236, 236);
+  padding: 30px 20px;
 }
 
 .footer_container {
@@ -473,7 +460,7 @@ header {
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .footer_title img {
@@ -506,4 +493,84 @@ header {
   text-align: center;
   color: gray;
   margin-top: 10px;
+}
+
+
+@media (max-width: 900px) {
+  header {
+    grid-template-columns: 1fr auto; /* Esconde ou empilha dinamicamente */
+    padding: 10px 20px;
+  }
+
+  .menu {
+    display: none; /* Em sistemas reais, aqui você usaria um menu sanduíche. Para simplificar, ocultei os links centrais no mobile */
+  }
+
+  .primary_container {
+    grid-template-columns: 1fr; /* Passa a ser uma coluna só */
+  }
+
+  .primary_desc {
+    text-align: center;
+    align-items: center;
+  }
+
+  .primary_botoes {
+    justify-content: center;
+  }
+
+  .primary_img {
+    order: -1; /* Joga a imagem para cima do texto no mobile */
+  }
+}
+
+/* Telas de Celulares menores (Até 600px) */
+@media (max-width: 600px) {
+  header {
+  min-height: 100px;
+  width: 100%;
+  padding: 10px 30px;
+  display: flex;                  /* Mudamos de grid para flex */
+  justify-content: space-between; /* Empurra a logo para a esquerda e o login para a direita */
+  align-items: center;            /* Garante que fiquem perfeitamente alinhados verticalmente */
+  border-bottom: 1px solid rgb(236, 236, 236);
+  position: fixed;
+  top: 0;
+  background: #ffffff;
+  z-index: 1000;
+}
+
+/* Opcional: Se você ainda quiser manter o menu do meio centralizado em telas grandes */
+.menu {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  /* Removemos o posicionamento antigo do grid, o flexbox se encarrega do espaçamento */
+}
+
+#userName{
+  font-size: 13pt;
+  font-weight: 500;
+}
+
+.menu-logado {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-left: 0; /* Remove o margin-left antigo */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.primary {
+  margin-top: 20; /* Remove a margem já que o header não é mais fixo */
+}
+
+.primary_desc h1 {
+  font-size: 32px;
+}
+
+.second_title h1, .third_title h1, .four_rolo h1 {
+  font-size: 28px;
+}
 }

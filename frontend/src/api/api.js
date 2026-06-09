@@ -1,7 +1,10 @@
 import axios from "https://cdn.skypack.dev/axios"
 
+//resolver
+const urlApi = "http://56.124.84.134:8080"
+
 export const postUser = (email, name, password) =>{
-    axios.post('http://localhost:8080/create', {
+    axios.post(`${urlApi}/create`, {
         email: email,
         name: name,
         password: password
@@ -16,7 +19,7 @@ export const postUser = (email, name, password) =>{
 
 export const postLogin = async(email, password) => {
     try {
-        const res = await axios.post('http://localhost:8080/login', {
+        const res = await axios.post(`${urlApi}/login`, {
             email: email,
             password: password
         });

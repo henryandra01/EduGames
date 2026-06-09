@@ -54,6 +54,7 @@
 }
 
 .primary_entrar h1 {
+  margin-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
   font-weight: 600;
@@ -92,6 +93,17 @@ input {
   font-weight: 400;
   border: 1px solid rgb(236, 236, 236);
   border-radius: 5px;
+  outline: none;
+  transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+input:hover{
+  border-radius: 8px;
+}
+
+input:focus{
+  border: 1px solid hsl(250 80% 60%);
+  border-radius: 8px;
 }
 
 .primary_botao {
@@ -101,7 +113,7 @@ input {
 .primary_botao button {
   display: block;
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 10px 40px;
   text-align: center;
   color: white;
   background-color: hsl(250 80% 60%);
@@ -109,10 +121,15 @@ input {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: 400;
+  margin: auto;
+  border: 1px solid transparent;
+  transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .primary_botao button:hover {
-  background-color: hsl(250, 100%, 63%);
+  cursor: pointer;
+  background-color: hsl(250, 94%, 68%);
+  border-radius: 8px;
 }
 
 .primary_footer {

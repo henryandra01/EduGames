@@ -1,0 +1,240 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   CABEÇALHO REFEITO (Mesma linha no mobile e fixo no topo se necessário)
+   ========================================================================== */
+header {
+    width: 100%;
+    max-width: 1200px; /* Alinha com o limite do conteúdo */
+    min-height: 70px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Empurra um para cada lado */
+    align-items: center;            /* Garante que fiquem na mesma linha horizontal */
+    background: #ffffff;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.icone a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.icone a img {
+    width: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.icone a span {
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+.menu-logado {
+    display: flex;
+    flex-direction: column; /* Deixa o botão abaixo do 'Olá, Igor' */
+    align-items: flex-end;  /* Alinha tudo à direita */
+    gap: 4px;
+}
+
+.menu-logado h2 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.menu-logado button {
+    padding: 4px 15px;
+    border-radius: 8px;
+    color: #ffffff;
+    background-color: #22b8a0;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.menu-logado button:hover {
+    background-color: #20a790;
+}
+
+/* ==========================================================================
+   CONTEÚDO DO JOGO
+   ========================================================================== */
+h1 {
+    color: #2b6cb0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+p {
+    color: #4a5568;
+    margin-bottom: 25px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Grade do Caça-Palavras Responsiva */
+.grid {
+    display: grid;
+    /* Usa variáveis CSS para controlar o tamanho de cada célula */
+    --cell-size: 35px; 
+    grid-template-columns: repeat(14, var(--cell-size));
+    grid-template-rows: repeat(14, var(--cell-size));
+    gap: 5px;
+    background-color: #cbd5e0;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    user-select: none;
+    /* Evita que a grade quebre o layout se a tela for menor que ela */
+    max-width: 100%; 
+    overflow-x: auto; 
+}
+
+.cell {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #2d3748;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.cell:hover {
+    background-color: #edf2f7;
+    transform: scale(1.05);
+}
+
+.cell.selected {
+    background-color: #4299e1;
+    color: white;
+}
+
+.cell.found {
+    background-color: #48bb78;
+    color: white;
+}
+
+/* Painel de Palavras */
+.word-list-container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    min-width: 220px;
+    max-width: 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    flex-grow: 1; /* Faz a lista se ajustar bem ao lado ou abaixo */
+}
+
+.word-list-container h3 {
+    margin-top: 0;
+    color: #2b6cb0;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+.word-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); /* Palavras em colunas no mobile */
+    gap: 10px;
+}
+
+.word-item {
+    padding: 5px 0;
+    font-size: 16px;
+    color: #4a5568;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.word-item.found-word {
+    text-decoration: line-through;
+    color: #48bb78;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Ajustes finos para telas menores)
+   ========================================================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 10px 15px;
+        min-height: 60px;
+    }
+
+    .icone a span {
+        font-size: 18px; /* Encolhe levemente o texto do logo */
+    }
+
+    .menu-logado h2 {
+        font-size: 14px;
+    }
+
+    /* Reduz o tamanho das letras do caça-palavras para caber em telas de celulares */
+    .grid {
+        --cell-size: 23px; 
+        gap: 3px;
+        padding: 8px;
+    }
+
+    .cell {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}
+
+/* Ajuste intermediário para celulares muito pequenos (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .grid {
+        --cell-size: 20px;
+        gap: 2px;
+    }
+    .cell {
+        font-size: 11px;
+    }
+}

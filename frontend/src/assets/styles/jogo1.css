@@ -6,36 +6,37 @@
 
 html,
 body {
-  height: 100vh;
+  min-height: 100vh; /* Permite rolar a página em celulares se as perguntas forem grandes */
   width: 100%;
   background-color: oklch(0.16 0.03 260);
   position: relative;
-  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .primary {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .primary_container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 20px; /* Padding reduzido para telas menores */
 }
 
 .primary_desc {
-  height: 100%;
   width: 100%;
+  max-width: 800px; /* Limite confortável para monitores grandes */
   border-radius: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   gap: 20px;
   padding: 20px;
 }
@@ -43,6 +44,9 @@ body {
 .primary_top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Faz os elementos se acomodarem melhor no celular */
+  gap: 15px;
 }
 
 .primary_texto {
@@ -50,26 +54,21 @@ body {
   gap: 10px;
 }
 
-.primary_texto button {
+/* Seleciona os botões do topo do jogo */
+.primary_texto button,
+.primary_timer {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 15px;
   background-color: oklch(0.25 0.04 260);
-  text-decoration: none;
+  border: none;
 }
 
 .primary_timer {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
-  color: white;
-  font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 15px;
   background-color: oklch(60.171% 0.24413 28.969);
-  text-decoration: none;
   display: none;
 }
 
@@ -81,96 +80,96 @@ body {
 }
 
 .primary_estrela img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
 
 .primary_estrela a {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 22px;
   color: white;
   font-weight: 600;
   text-decoration: none;
   width: fit-content;
 }
 
-.primary_barra {
+.primary_barra,
+.primary_tempo {
   width: 100%;
-  height: 5px;
+  height: 6px;
   background-color: oklch(0.28 0.04 260);
   border-radius: 5px;
 }
 
 .primary_tempo {
-  width: 100%;
-  height: 5px;
-  background-color: oklch(0.28 0.04 260);
-  border-radius: 5px;
   overflow: hidden;
 }
 
 .primary_gradual {
   width: 0;
-  height: 5px;
+  height: 100%;
   background-color: oklch(0.6 0.18 150);
   border-radius: 5px;
   animation: tempo 15s linear forwards;
 }
 
 @keyframes tempo {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0px;
-  }
+  from { width: 100%; }
+  to { width: 0px; }
 }
 
 .primary_questions {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 #titulopag {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 35px;
+  font-size: 26px;
   font-weight: 600;
   text-decoration: none;
   background-color: oklch(0.25 0.04 260);
-  padding: 20px 20px;
+  padding: 20px;
   color: white;
   border-radius: 10px;
+  line-height: 1.3;
+  display: block;
 }
 
-li {
+/* Altera apenas as alternativas do quiz, sem quebrar a introdução */
+.primary_questions ul li {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   list-style: none;
   background-color: oklch(0.25 0.04 260);
-  padding: 10px 20px;
+  padding: 15px 20px;
   color: white;
   border-radius: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-li:hover {
+.primary_questions ul li:hover {
   background-color: oklch(0.5 0.04 260);
 }
 
 .primary_botao {
   text-decoration: none;
   background-color: oklch(0.25 0.04 260);
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 18px;
   width: fit-content;
   border-radius: 5px;
   color: white;
-  align-self: end;
+  align-self: flex-end;
+  border: none;
+  cursor: pointer;
   display: none;
 }
 
@@ -182,144 +181,77 @@ li:hover {
   background-color: oklch(0.5 0.04 260);
 }
 
-.second {
-  height: 100vh;
+/* ==========================================================================
+   MODAIS DE TELA CHEIA (Fim de Jogo e Vitória)
+   ========================================================================== */
+.second, .third {
+  min-height: 100vh;
   width: 100%;
-  background-color: oklch(0.6 0.1 260 / 0.3);
-  z-index: 2;
-  position: absolute;
+  background-color: oklch(0.6 0.1 260 / 0.5);
+  z-index: 10;
+  position: fixed; /* Mudado para fixed para cobrir a tela perfeitamente */
   top: 0;
-  padding: 70px;
-  animation: flutuar 3s ease-in-out unset;
+  left: 0;
+  padding: 20px;
   display: none;
-}
-
-.second_container {
-  height: 100%;
-  width: 100%;
-  border-radius: 30px;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 30px;
-  background: rgba(0, 0, 0, 0.99);
-  animation: flutuar 3s ease-in-out forwards;
-}
-@keyframes flutuar {
-  from {
-    transform: translateY(-300px);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-.second_h1 {
-  display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: end;
 }
 
-.second_h1 h1 {
+.second_container, .third_container {
+  width: 100%;
+  max-width: 500px;
+  min-height: 300px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 40px 20px;
+  animation: flutuar 0.4s ease-in-out forwards;
+}
+
+@keyframes flutuar {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.second_h1 h1, .third_h1 h1 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 80px;
-  font-weight: 600;
+  font-size: 38px; /* Reduzido de 80px para caber em telas menores */
+  font-weight: 800;
   text-align: center;
   color: white;
 }
 
-.second_reiniciar {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  margin-bottom: 100px;
+.second_reiniciar, .third_reiniciar {
+  margin-bottom: 0;
 }
 
-.second_botao {
+.second_botao, .third_botao {
   text-decoration: none;
   background-color: oklch(0.25 0.04 260);
-  padding: 10px 20px;
+  padding: 15px 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 18px;
-  width: fit-content;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.2s;
 }
 
-.second_botao:hover {
+.second_botao:hover, .third_botao:hover {
   background-color: oklch(0.5 0.04 260);
 }
 
-.third {
-  height: 100vh;
-  width: 100%;
-  background-color: oklch(0.6 0.1 260 / 0.3);
-  z-index: 2;
-  position: absolute;
-  top: 0;
-  padding: 70px;
-  animation: flutuar 3s ease-in-out unset;
-  display: none;
-}
-
-.third_container {
-  height: 100%;
-  width: 100%;
-  border-radius: 30px;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 30px;
-  background: rgba(0, 0, 0, 0.99);
-  animation: flutuar 3s ease-in-out forwards;
-}
-@keyframes flutuar {
-  from {
-    transform: translateY(-300px);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-}
-
-.third_h1 {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-}
-
-.third_h1 h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 80px;
-  font-weight: 600;
-  text-align: center;
-  color: white;
-}
-
-.third_reiniciar {
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  margin-bottom: 100px;
-}
-
-.third_reiniciar a {
-  text-decoration: none;
-  background-color: oklch(0.25 0.04 260);
-  padding: 10px 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-  width: fit-content;
-  border-radius: 5px;
-  color: white;
-}
-
-.third_botao:hover {
-  background-color: oklch(0.5 0.04 260);
-}
-
+/* ==========================================================================
+   TELA DE INTRODUÇÃO (Quiz Master)
+   ========================================================================== */
 .fourty_section {
   --fourty-background: oklch(0.16 0.03 260);
   --fourty-foreground: oklch(0.96 0.01 260);
@@ -335,20 +267,12 @@ li:hover {
 
   width: 100%;
   min-height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: 1rem;
-
+  padding: 20px;
   background-color: var(--fourty-background);
-
-  font-family:
-    "Inter",
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 .fourty_section * {
@@ -360,21 +284,16 @@ li:hover {
 .fourty_container {
   max-width: 32rem;
   width: 100%;
-
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-
+  gap: 1.5rem;
   text-align: center;
-
   color: var(--fourty-foreground);
-
   animation: fourty_slide_up 0.4s ease-out;
 }
 
 .fourty_emoji {
-  font-size: 4.5rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
 }
 
 .fourty_title {
@@ -401,15 +320,11 @@ li:hover {
 
 .fourty_stat {
   background: var(--fourty-card);
-
   border-radius: var(--fourty-radius);
-
   padding: 1rem;
-
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-
   align-items: center;
 }
 
@@ -429,11 +344,8 @@ li:hover {
 
 .fourty_rules {
   background: var(--fourty-card-soft);
-
   border-radius: var(--fourty-radius);
-
   padding: 1.25rem;
-
   text-align: left;
 }
 
@@ -445,67 +357,42 @@ li:hover {
 
 .fourty_rules_list {
   list-style: none;
-
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.fourty_rules_item {
+/* Modificado para não herdar estilos globais do 'li' do jogo principal */
+.fourty_rules_list .fourty_rules_item {
   display: flex;
   gap: 0.5rem;
-
   font-size: 0.875rem;
-
   color: var(--fourty-muted-foreground);
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  cursor: default;
 }
 
-.fourty_success_mark {
-  color: var(--fourty-success);
-}
-
-.fourty_error_mark {
-  color: var(--fourty-destructive);
-}
-
-.fourty_warn_mark {
-  color: var(--fourty-warning);
-}
-
-.fourty_success_text {
-  color: var(--fourty-success);
-  font-weight: 500;
-}
-
-.fourty_error_text {
-  color: var(--fourty-destructive);
-  font-weight: 500;
-}
-
-.fourty_warn_text {
-  color: var(--fourty-warning);
-  font-weight: 500;
-}
+.fourty_success_mark { color: var(--fourty-success); }
+.fourty_error_mark { color: var(--fourty-destructive); }
+.fourty_warn_mark { color: var(--fourty-warning); }
+.fourty_success_text { color: var(--fourty-success); font-weight: 500; }
+.fourty_error_text { color: var(--fourty-destructive); font-weight: 500; }
+.fourty_warn_text { color: var(--fourty-warning); font-weight: 500; }
 
 .fourty_button {
   width: 100%;
   height: 3.5rem;
-
   border: none;
   border-radius: var(--fourty-radius);
-
   background: var(--fourty-primary);
   color: var(--fourty-primary-foreground);
-
   font-size: 1.125rem;
   font-weight: 700;
-
   cursor: pointer;
-
-  transition:
-    background 0.2s,
-    transform 0.1s;
-
+  transition: background 0.2s, transform 0.1s;
   animation: fourty_pulse_glow 2s infinite;
 }
 
@@ -518,24 +405,55 @@ li:hover {
 }
 
 @keyframes fourty_slide_up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fourty_pulse_glow {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 var(--fourty-primary);
+  0%, 100% { box-shadow: 0 0 0 0 var(--fourty-primary); }
+  50% { box-shadow: 0 0 20px 4px var(--fourty-primary); }
+}
+
+
+/* ==========================================================================
+   MEDIA QUERIES (Ajustes responsivos mobile)
+   ========================================================================== */
+@media (max-width: 600px) {
+  #titulopag {
+    font-size: 20px;
+    padding: 15px;
   }
 
-  50% {
-    box-shadow: 0 0 20px 4px var(--fourty-primary);
+  .primary_questions ul li {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+
+  .primary_texto button, 
+  .primary_timer, 
+  .primary_estrela a {
+    font-size: 15px;
+    padding: 8px 12px;
+  }
+
+  .primary_estrela img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .second_h1 h1, .third_h1 h1 {
+    font-size: 28px;
+  }
+
+  .fourty_stats {
+    grid-template-columns: 1fr; /* Muda os cards de status para ocuparem linhas individuais no celular */
+    gap: 10px;
+  }
+
+  .fourty_stat {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 12px 20px;
   }
 }

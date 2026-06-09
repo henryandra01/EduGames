@@ -6,14 +6,17 @@ btnLogin.addEventListener('click', async() =>{
     const password = document.getElementById('senhaInput').value
 
     try{
-        const response = await postLogin(email, password)
-        if(response){
-            // Como o localStorage só aceita TEXTO, transformamos o objeto do usuário em uma string JSON
-            localStorage.setItem('@EduPlay:user', JSON.stringify(response));
+        if(email != "" || password != ""){
+            const response = await postLogin(email, password)
+            if(response){
+                // Como o localStorage só aceita TEXTO, transformamos o objeto do usuário em uma string JSON
+                localStorage.setItem('@EduPlay:user', JSON.stringify(response));
 
-            alert(`Bem-vindo, ${response.name}!`);
-            window.location.href = '../pages/menu.html'
-        } 
+                alert("Login efetuado com sucesso!");
+                window.location.href = '../pages/menu.html'
+            } 
+        }else alert("Email ou senha vazias")
+
     }catch(error){
         alert("Falha na autenticação.");
         console.log(error)
