@@ -1,7 +1,7 @@
 import axios from "https://cdn.skypack.dev/axios"
 
 //resolver
-const urlApi = "http://56.124.84.134:8080"
+const urlApi = "https://apiedugames.igorsp.com.br"
 
 export const postUser = (email, name, password) =>{
     axios.post(`${urlApi}/create`, {
